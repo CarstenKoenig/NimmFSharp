@@ -9,15 +9,15 @@
 /// das Verwalten wird und die "freie Monade" abnehmen die wir weiter unten definieren
 type IOInstruction<'a> =
     | WriteText of text:string * cont:(unit -> 'a)
-    | ReadNr of prompt:string * max:int * cont:(int -> 'a)
+    | ReadText of prompt:string * cont:(string -> 'a)
     | Clear of cont:(unit -> 'a)
     /// Funktor-Map - das "Ergebnis" jeweils mit `f` transformieren
     member this.map f =
         match this with
         | WriteText (text, cont) -> 
             WriteText (text, cont >> f)
-        | ReadNr (prompt, max, cont) -> 
-            ReadNr (prompt, max, cont >> f)
+        | ReadText (prompt, cont) -> 
+            ReadText (prompt, cont >> f)
         | Clear cont -> 
             Clear (cont >> f)
 
@@ -81,5 +81,18 @@ module IO =
 
     // unsere "Seiteneffekte" kapseln wir jetzt noch als schöne Funktionen:
     let writeText text = Free (WriteText (text, Pure))
-    let readNr prompt max = Free (ReadNr (prompt, max, Pure))
+    let readText prompt = Free (ReadText (prompt, Pure))
     let clear = Free (Clear Pure)
+
+    /// Hilfsfunktion um den Benutzer eine Nummer zwischen 1 und max eingeben zu lassen
+    let rec askForNumber max (prompt : string) : IOProgram<int> =
+        io {
+            let! input = readText prompt
+            match System.Int32.TryParse input with
+            | (true, i) when i > 0 && i <= max -> 
+                return i
+            | _ ->
+                do! writeText (sprintf "bitte eine positive Zahl zwischen 1 und %d eingeben" max)
+                return! askForNumber max prompt
+        }
+

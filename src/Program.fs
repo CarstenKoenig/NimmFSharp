@@ -16,13 +16,17 @@ let rec playGame state =
     let actionNumber = Console.askForNumber actions.Length "Bitte Aktionsnummer eingeben:"
     let state' = State.act actions.[actionNumber-1] state
     playGame state'
+
+let runGame () =
+    State.initWithCoins 13
+    |> playGame
+
+let runConsoleInterpreter () =
+    Gameplay.gameWithCoins 21
+    |> Console.runConsole
     
 
 [<EntryPoint>]
 let main argv =
-    //State.initWithCoins 13
-    //|> playGame
-    let won =
-        Gameplay.gameWithCoins 21
-        |> Console.runConsole
+    runConsoleInterpreter () |> ignore
     0 // return an integer exit code

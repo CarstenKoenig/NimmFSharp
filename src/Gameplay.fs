@@ -15,7 +15,7 @@ module Gameplay =
                 let actions = Seq.mapi (fun ind act -> (ind + 1, act)) (State.validActions state) |> Seq.toArray
                 for (i, act) in actions do
                     do! writeText (sprintf "(%d): %O" i act)
-                let! actionNr = readNr "Aktions-Nummer eingeben:" actions.Length
+                let! actionNr = askForNumber actions.Length "Aktions-Nummer eingeben:"
                 return (snd (actions.[actionNr-1]))
             }
         let rec run (state : State) : IOProgram<Player> = 

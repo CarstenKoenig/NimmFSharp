@@ -5,10 +5,10 @@ module Test =
 
     type Environment =
         { 
-            input : System.Collections.Generic.Stack<int>
+            input : System.Collections.Generic.Stack<string>
             output : System.Collections.Generic.List<string>
         }
-        static member FromInputList (inputs : seq<int>) =
+        static member FromInputList (inputs : seq<string>) =
             {
                 input = System.Collections.Generic.Stack inputs
                 output = System.Collections.Generic.List ()
@@ -30,7 +30,7 @@ module Test =
                 env.output.Add text
                 |> cont
                 |> go
-            | Free (ReadNr (prompt, _, cont)) ->
+            | Free (ReadText (prompt, cont)) ->
                 env.output.Add prompt
                 env.input.Pop ()
                 |> cont
