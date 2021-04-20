@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="RunTest.fs" />
-    <Compile Include="Tests.fs" />
+    <Compile Include="TestMonadInterpreter.fs" />
+    <Compile Include="FreeMonadTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

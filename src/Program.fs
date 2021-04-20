@@ -13,7 +13,7 @@ let rec playGame state =
     if actions.IsEmpty then () else
     for (i, action) in Seq.indexed actions do
         printfn "(%d): %O" (i+1) action
-    let actionNumber = Console.askForNumber actions.Length "Bitte Aktionsnummer eingeben:"
+    let actionNumber = FreeMonads.Console.askForNumber actions.Length "Bitte Aktionsnummer eingeben:"
     let state' = State.act actions.[actionNumber-1] state
     playGame state'
 
@@ -22,8 +22,8 @@ let runGame () =
     |> playGame
 
 let runConsoleInterpreter () =
-    Gameplay.gameWithCoins 21
-    |> Console.runConsole
+    FreeMonads.Gameplay.gameWithCoins 21
+    |> FreeMonads.Console.runConsole
     
 
 [<EntryPoint>]

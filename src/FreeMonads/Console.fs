@@ -1,4 +1,4 @@
-﻿namespace Nimm.Game
+﻿namespace Nimm.Game.FreeMonads
 
 module Console =    
     /// das ist ein sogenannter Interpreter der ein Programm (unsere freie Monade)

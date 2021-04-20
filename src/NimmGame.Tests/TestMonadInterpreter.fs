@@ -1,7 +1,7 @@
-﻿namespace Nimm.Game
+﻿namespace Nimm.Game.FreeMonads
 
-module Test =    
-    open Nimm.Game
+module TestInterpreter =    
+    open Nimm.Game.FreeMonads
 
     type Environment =
         { 

@@ -7,9 +7,9 @@
 
   <ItemGroup>
     <Compile Include="Game.fs" />
-    <Compile Include="IO.fs" />
-    <Compile Include="Gameplay.fs" />
-    <Compile Include="Console.fs" />
+    <Compile Include="FreeMonads\IO.fs" />
+    <Compile Include="FreeMonads\Console.fs" />
+    <Compile Include="FreeMonads\Gameplay.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿namespace Nimm.Game
+﻿namespace Nimm.Game.FreeMonads
+
 
 // Schöne Einführung in freie Monaden mit F# von Mark Seemann:
 // https://blog.ploeh.dk/2017/08/07/f-free-monad-recipe/

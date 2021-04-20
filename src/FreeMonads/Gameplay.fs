@@ -1,7 +1,9 @@
-﻿namespace Nimm.Game
+﻿namespace Nimm.Game.FreeMonads
+
+open Nimm.Game
 
 module Gameplay =
-    open Nimm.Game.IO
+    open Nimm.Game.FreeMonads.IO
     
     /// Umsetzung des Spiels mit unserer freien Monade / Computational Expression
     let gameWithCoins (coins : CoinCount) : IOProgram<Player> =
