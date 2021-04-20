@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NimmGame", "NimmGame.fsproj", "{D95C1BBF-B2B9-427D-9E19-8F15568D445F}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NimmGame", "NimmGame\NimmGame.fsproj", "{D95C1BBF-B2B9-427D-9E19-8F15568D445F}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "NimmGame.Tests", "NimmGame.Tests\NimmGame.Tests.fsproj", "{261BD7EC-8B7C-45F0-B3A3-E949D303739B}"
 EndProject

@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NimmGame.fsproj" />
+    <ProjectReference Include="..\NimmGame\NimmGame.fsproj" />
   </ItemGroup>
 
 </Project>
