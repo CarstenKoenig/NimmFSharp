@@ -13,6 +13,7 @@
     <Compile Include="FreeMonads\IO.fs" />
     <Compile Include="FreeMonads\Console.fs" />
     <Compile Include="FreeMonads\Gameplay.fs" />
+    <Compile Include="DirecteImplementation.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
