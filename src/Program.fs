@@ -17,16 +17,24 @@ let rec playGame state =
     let state' = State.act actions.[actionNumber-1] state
     playGame state'
 
-let runGame () =
-    State.initWithCoins 13
+let runGame coins =
+    State.initWithCoins coins
     |> playGame
 
-let runConsoleInterpreter () =
-    FreeMonads.Gameplay.gameWithCoins 21
+let runDependencyInjection =
+    let console = new DependencyInjection.Console()
+    let io = DependencyInjection.IO console
+    let game = DependencyInjection.Gameplay io
+    game.GameWithCoins
+
+let runConsoleInterpreter coins =
+    FreeMonads.Gameplay.gameWithCoins coins
     |> FreeMonads.Console.runConsole
     
 
 [<EntryPoint>]
 let main argv =
-    runConsoleInterpreter () |> ignore
+    // runGame 13
+    runDependencyInjection 13 |> ignore
+    // runConsoleInterpreter 13 |> ignore
     0 // return an integer exit code
