@@ -1,5 +1,3 @@
 {
-    "dotnet-test-explorer.testProjectPath": "**/*Tests.fsproj",
-    "FSharp.infoPanelReplaceHover": true,
-    "FSharp.infoPanelShowOnStartup": true
+    "dotnet-test-explorer.testProjectPath": "**/*Tests.fsproj"
 }
